@@ -1,0 +1,10 @@
+.sf/
+.sfdx/
+.vscode/
+node_modules/
+lead-fields.json
+account-fields.json
+lead-describe.json
+opp-fields.json
+order-fields.json
+teste-viacep.apex

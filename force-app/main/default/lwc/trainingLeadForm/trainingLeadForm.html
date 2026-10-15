@@ -1,0 +1,95 @@
+<template>
+    <lightning-card title="Cadastro de Potencial Cliente" icon-name="standard:lead">
+        <div class="slds-p-around_medium">
+
+            <lightning-combobox
+                label="Tipo de Pessoa"
+                value={tipoDocumento}
+                options={tipoOptions}
+                onchange={handleTipoChange}
+                required
+                class="slds-m-bottom_small">
+            </lightning-combobox>
+
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <lightning-input label="Nome" name="firstName" value={form.firstName}
+                        onchange={handleChange} required></lightning-input>
+                </div>
+                <div class="slds-col">
+                    <lightning-input label="Sobrenome" name="lastName" value={form.lastName}
+                        onchange={handleChange} required></lightning-input>
+                </div>
+            </div>
+
+            <lightning-input label="Empresa" name="company" value={form.company}
+                onchange={handleChange}></lightning-input>
+
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <lightning-input type="email" label="E-mail" name="email" value={form.email}
+                        onchange={handleChange} required></lightning-input>
+                </div>
+                <div class="slds-col">
+                    <lightning-input type="tel" label="Telefone" name="phone" value={form.phone}
+                        onchange={handleChange} required></lightning-input>
+                </div>
+            </div>
+
+            <lightning-input label={labelDocumento} name="documento" value={form.documento}
+                onchange={handleChange} required></lightning-input>
+
+            <div class="slds-grid slds-gutters slds-grid_vertical-align-end">
+                <div class="slds-col">
+                    <lightning-input label="CEP" name="cep" value={form.cep}
+                        onchange={handleChange} required></lightning-input>
+                </div>
+                <div class="slds-col slds-shrink-none">
+                    <lightning-button label="Buscar CEP" variant="neutral" onclick={handleBuscarCep}
+                        class="slds-m-bottom_xx-small"></lightning-button>
+                </div>
+            </div>
+
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3">
+                    <lightning-input label="Logradouro" name="street" value={form.street}
+                        onchange={handleChange} required></lightning-input>
+                </div>
+                <div class="slds-col">
+                    <lightning-input label="Número" name="numero" value={form.numero}
+                        onchange={handleChange} required></lightning-input>
+                </div>
+            </div>
+
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <lightning-input label="Bairro" name="bairro" value={form.bairro}
+                        onchange={handleChange} required></lightning-input>
+                </div>
+                <div class="slds-col">
+                    <lightning-input label="Complemento" name="complemento" value={form.complemento}
+                        onchange={handleChange}></lightning-input>
+                </div>
+            </div>
+
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <lightning-input label="Cidade" name="city" value={form.city}
+                        onchange={handleChange} required></lightning-input>
+                </div>
+                <div class="slds-col">
+                    <lightning-input label="UF" name="state" value={form.state}
+                        onchange={handleChange} required></lightning-input>
+                </div>
+            </div>
+
+            <div class="slds-m-top_medium slds-align_absolute-center">
+                <lightning-button label="Salvar" variant="brand" onclick={handleSalvar}></lightning-button>
+            </div>
+
+            <template if:true={mensagem}>
+                <p class={classeMensagem}>{mensagem}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

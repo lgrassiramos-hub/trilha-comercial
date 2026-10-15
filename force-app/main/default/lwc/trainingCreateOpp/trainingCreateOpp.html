@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Criar Oportunidade" icon-name="standard:opportunity">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Nome da oportunidade" name="nome" value={form.nome}
+                onchange={handleChange} required></lightning-input>
+            <lightning-combobox label="Produto" name="produto" value={form.produto}
+                options={produtoOptions} onchange={handleChange} required></lightning-combobox>
+            <lightning-input type="number" label="Valor estimado" name="valorEstimado"
+                value={form.valorEstimado} onchange={handleChange} required></lightning-input>
+            <lightning-input type="number" label="Quantidade" name="quantidade"
+                value={form.quantidade} onchange={handleChange} required></lightning-input>
+            <lightning-input type="date" label="Data de fechamento" name="dataFechamento"
+                value={form.dataFechamento} onchange={handleChange} required></lightning-input>
+            <lightning-textarea label="Observação" name="observacao" value={form.observacao}
+                onchange={handleChange}></lightning-textarea>
+
+            <div class="slds-m-top_medium slds-align_absolute-center">
+                <lightning-button label="Criar Oportunidade" variant="brand" onclick={handleSalvar}></lightning-button>
+            </div>
+
+            <template if:true={mensagem}>
+                <p class={classeMensagem}>{mensagem}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
